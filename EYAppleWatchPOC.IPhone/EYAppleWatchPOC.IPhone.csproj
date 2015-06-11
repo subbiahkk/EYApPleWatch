@@ -95,9 +95,13 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="Views\EngagementCell.cs" />
+    <Compile Include="Views\EngagementCell.designer.cs">
+      <DependentUpon>EngagementCell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h@2x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">
@@ -125,6 +129,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppDelegate.cs.txt" />
@@ -133,9 +140,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EYAppleWatchPOC.Core\EYAppleWatchPOC.Core.csproj">
-      <Project>{cf6dace7-acf8-4255-bc8e-b97b686d98a6}</Project>
+      <Project>{CF6DACE7-ACF8-4255-BC8E-B97B686D98A6}</Project>
       <Name>EYAppleWatchPOC.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\EngagementCell.xib" />
+  </ItemGroup>
 </Project>
