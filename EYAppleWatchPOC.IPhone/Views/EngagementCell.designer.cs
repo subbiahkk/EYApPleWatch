@@ -11,8 +11,25 @@ namespace EYAppleWatchPOC.IPhone
 	[Register ("EngagementCell")]
 	partial class EngagementCell
 	{
-		void ReleaseDesignerOutlets ()
-		{
-		}
+        [Outlet]
+        UIKit.UILabel ClientLabel { get; set; }
+
+        [Outlet]
+        UIKit.UILabel DescriptionLabel { get; set; }
+
+        void ReleaseDesignerOutlets()
+        {
+            if (ClientLabel != null)
+            {
+                ClientLabel.Dispose();
+                ClientLabel = null;
+            }
+
+            if (DescriptionLabel != null)
+            {
+                DescriptionLabel.Dispose();
+                DescriptionLabel = null;
+            }
+        }
 	}
 }

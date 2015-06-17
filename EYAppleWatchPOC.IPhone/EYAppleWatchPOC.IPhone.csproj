@@ -90,6 +90,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\EngagementView.cs" />
+    <Compile Include="Views\EngTaskView.cs" />
     <Compile Include="Views\FirstView.cs" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="Info.plist" />
@@ -136,6 +137,10 @@
   <ItemGroup>
     <Content Include="AppDelegate.cs.txt" />
     <Content Include="Entitlements.plist" />
+    <BundleResource Include="Resources\B-icon-21.png" />
+    <BundleResource Include="Resources\Engagement.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Submit.jpeg" />
     <Content Include="ToDo-MvvmCross\_ Touch UI.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +151,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <InterfaceDefinition Include="Views\EngagementCell.xib" />
+    <InterfaceDefinition Include="Views\EngagementCell.xib">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
   </ItemGroup>
 </Project>

@@ -13,5 +13,7 @@ namespace EYAppleWatchPOC.Core.Models
         public string Description { get; set; }
 
         public int EngagementId { get; set; }
+
+        public string EngDesc { get; set; }
     }
 }

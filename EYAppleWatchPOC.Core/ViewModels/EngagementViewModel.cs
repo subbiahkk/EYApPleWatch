@@ -41,7 +41,7 @@ namespace EYAppleWatchPOC.Core.ViewModels
         private void ShowEvidence(Engagement engagement)
         {
             string strEngagement = Newtonsoft.Json.JsonConvert.SerializeObject(engagement);
-            //ShowViewModel<EvidenceViewModel>(new { eng = strEngagement });
+            ShowViewModel<EngTaskViewModel>(new { eng = strEngagement });
 
 
         }
