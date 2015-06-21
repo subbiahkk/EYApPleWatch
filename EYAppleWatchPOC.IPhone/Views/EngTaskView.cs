@@ -1,5 +1,6 @@
+﻿
 using System;
-using System.Drawing;
+
 using System.Drawing;
 using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Touch.Views;
@@ -9,43 +10,112 @@ using ObjCRuntime;
 using UIKit;
 using EYAppleWatchPOC.Core.ViewModels;
 using Foundation;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EYAppleWatchPOC.IPhone.Views
 {
-   
+	public partial class EngTaskView : MvxViewController
+	{
+		public EngTaskView()
+		{
+		}
 
-    [Register("EngTaskView")]
-    public class EngTaskView : MvxTableViewController
-    {
-        public EngTaskView()
-        {
-        }
+		public override void DidReceiveMemoryWarning()
+		{
+			// Releases the view if it doesn't have a superview.
+			base.DidReceiveMemoryWarning();
 
-        public override void DidReceiveMemoryWarning()
-        {
-            // Releases the view if it doesn't have a superview.
-            base.DidReceiveMemoryWarning();
+			// Release any cached data, images, etc that aren't in use.
+		}
 
-            // Release any cached data, images, etc that aren't in use.
-        }
+		partial void Button_Click (Foundation.NSObject sender)
+		{
+			/*var categories = new  NSMutableSet();
+			var acceptAction = new UIMutableUserNotificationAction();
+			acceptAction.Title = "New Task";
+			acceptAction.Identifier = "Accept";
+			acceptAction.ActivationMode = UIUserNotificationActivationMode.Background;
+			acceptAction.AuthenticationRequired = false;
+			  
+			UIUserNotificationAction[] actions = new UIUserNotificationAction[1]();
+			actions[0] = acceptAction;
+			var taskCategory = new UIMutableUserNotificationCategory();
+			taskCategory.SetActions(actions,UIUserNotificationActionContext.Default);
+			taskCategory.Identifier = "Task";
+			categories.AddObjects(taskCategory);
 
-        public override void ViewDidLoad()
-        {
-            base.ViewDidLoad();
+			var settings = new UIUserNotificationSettings;*/
 
-            // ios7 layout
-            if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
-                EdgesForExtendedLayout = UIRectEdge.None;
+			/*var notification = new UILocalNotification();
 
-            var source = new MvxStandardTableViewSource(TableView, "TitleText Description;Engagement EngDesc");
-            TableView.Source = source;
+			// set the fire date (the date time in which it will fire)
+			notification.FireDate = NSDate.Now.AddSeconds(10); //DateTime.Now.AddSeconds(10));
+			notification.TimeZone = NSTimeZone.DefaultTimeZone;
+			// configure the alert stuff
+			notification.AlertTitle = "New Task";
+			notification.AlertAction = "Alert Action";
+			notification.AlertBody = "New Task Added to Engagement 1";
+			notification.SoundName = UILocalNotification.DefaultSoundName;
 
-            var set = this.CreateBindingSet<EngTaskView, EngTaskViewModel>();
-            set.Bind(source).To(vm => vm.EngTasks);
-            set.Apply();
+			notification.UserInfo = NSDictionary.FromObjectAndKey (new NSString("UserInfo for notification"), 
+				new NSString("Notification"));
 
-            TableView.ReloadData();
-        }
-    }
+			// modify the badge - has no effect on the Watch
+			//notification.ApplicationIconBadgeNumber = 1;
+
+			// set the sound to be the default sound
+			//notification.SoundName = UILocalNotification.DefaultSoundName;
+
+			// schedule it
+			UIApplication.SharedApplication.ScheduleLocalNotification(notification);*/
+		}
+
+		public override void ViewDidLoad()
+		{
+			
+
+			base.ViewDidLoad();
+			this.Title = "Tasks";
+
+			EngTaskViewModel viewModel = (EngTaskViewModel)this.ViewModel;
+
+			if (viewModel.EngTasks.Where (s => s.IsNew == true).ToList().Count > 0) {
+				var notification = new UILocalNotification();
+
+				// set the fire date (the date time in which it will fire)
+				notification.FireDate = NSDate.Now.AddSeconds(3); //DateTime.Now.AddSeconds(10));
+				notification.TimeZone = NSTimeZone.DefaultTimeZone;
+				// configure the alert stuff
+				notification.AlertTitle = "New Task";
+				notification.AlertAction = "Alert Action";
+				notification.AlertBody = "New Task :" +
+				viewModel.EngTasks.Where (s => s.IsNew == true).ToList () [0].Description
+					+ " Added to Engagement : " + viewModel.Engagement.Description;
+				notification.SoundName = UILocalNotification.DefaultSoundName;
+
+				notification.UserInfo = NSDictionary.FromObjectAndKey (new NSString("UserInfo for notification"), 
+					new NSString("Notification"));
+
+				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
+			}
+
+			var tableView = new UITableView(new RectangleF(0, 125, 1200, 1208), UITableViewStyle.Plain);
+			//var tableView = new UITableView(View., UITableViewStyle.Plain);
+			Add(tableView);
+
+			tableView.RowHeight = 89;
+			tableView.BackgroundColor = UIColor.White;
+
+			var source = new MvxSimpleTableViewSource(tableView, EngTaskViewCell.Key, EngTaskViewCell.Key);
+			tableView.Source = source;
+
+			var set = this.CreateBindingSet<EngTaskView, EngTaskViewModel>();
+			set.Bind(source).To(vm => vm.EngTasks);
+			//set.Bind(source).For(s => s.SelectionChangedCommand).To(vm => vm.ItemSelectedCommand);
+			set.Apply();
+
+			tableView.ReloadData();
+		}
+	}
 }

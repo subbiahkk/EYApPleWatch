@@ -14,7 +14,7 @@ namespace EYAppleWatchPOC.Core.ViewModels
         public void Init(string eng)
         {
             Engagement = Newtonsoft.Json.JsonConvert.DeserializeObject<Engagement>(eng);
-            EngTasks = GetEngagementTasks();
+			EngTasks = Engagement.Tasks;;
         }
 
         public EngTaskViewModel()
@@ -22,6 +22,11 @@ namespace EYAppleWatchPOC.Core.ViewModels
             
            
         }
+
+		public void AddTask(string description,int engId)
+		{
+			
+		}
 
         public Engagement Engagement { get; set; }
 
@@ -46,13 +51,13 @@ namespace EYAppleWatchPOC.Core.ViewModels
 
         private void ShowEvidence(Engagement engagement)
         {
-            string strEngagement = Newtonsoft.Json.JsonConvert.SerializeObject(engagement);
+            //string strEngagement = Newtonsoft.Json.JsonConvert.SerializeObject(engagement);
             //ShowViewModel<EvidenceViewModel>(new { eng = strEngagement });
 
 
         }
 
-        private List<EngTask> GetEngagementTasks()
+        /*private List<EngTask> GetEngagementTasks()
         {
             List<EngTask> engtasks = new List<EngTask>();
             for(int i = 1;i<5;i++)
@@ -63,7 +68,7 @@ namespace EYAppleWatchPOC.Core.ViewModels
 
             return engtasks;
             
-        }
+        }*/
 
     }
 }

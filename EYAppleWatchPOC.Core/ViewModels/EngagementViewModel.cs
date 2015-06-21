@@ -11,12 +11,12 @@ namespace EYAppleWatchPOC.Core.ViewModels
         : MvxViewModel
     {
 
-        public EngagementViewModel()
+		public EngagementViewModel(IEngagementService engagementService)
         {
-            //engagementService.GetAllEngagements(result => Engagements = result,
-            //    error => { });
+            engagementService.GetAllEngagements(result => Engagements = result,
+                error => { });
 
-            Engagements = GetEngagements();
+            //Engagements = GetEngagements();
         }
 
         private List<Engagement> _Engagements;

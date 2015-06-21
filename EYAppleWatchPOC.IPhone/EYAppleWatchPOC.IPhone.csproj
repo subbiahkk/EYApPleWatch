@@ -22,6 +22,11 @@
     <MtouchArch>i386</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
+    <CodesignProvision>f253ed51-1e65-4860-93cd-52a0ce72464c</CodesignProvision>
+    <CodesignKey>iPhone Developer: Subbiah Kalidass (665E773VL7)</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -46,6 +51,9 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchUseRefCounting>true</MtouchUseRefCounting>
+    <MtouchI18n>
+    </MtouchI18n>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -100,9 +108,19 @@
     <Compile Include="Views\EngagementCell.designer.cs">
       <DependentUpon>EngagementCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\EngTaskViewCell.cs" />
+    <Compile Include="Views\EngTaskViewCell.designer.cs">
+      <DependentUpon>EngTaskViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EngTaskView.designer.cs">
+      <DependentUpon>EngTaskView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Scheduled-Tasks-icon.png" />
+    <BundleResource Include="Resources\128x128_crop_EYLogo.png" />
+    <BundleResource Include="Resources\128x128_EYLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Cirrious.CrossCore">
@@ -148,11 +166,18 @@
       <Project>{CF6DACE7-ACF8-4255-BC8E-B97B686D98A6}</Project>
       <Name>EYAppleWatchPOC.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EYAppleWatchPOC.IPhoneWatchKitExtension\EYAppleWatchPOC.IPhoneWatchKitExtension.csproj">
+      <Project>{B8239091-A87F-4ECA-8C94-0E293C299B86}</Project>
+      <Name>EYAppleWatchPOC.IPhoneWatchKitExtension</Name>
+      <IsAppExtension>True</IsAppExtension>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <InterfaceDefinition Include="Views\EngagementCell.xib">
       <SubType>Designer</SubType>
     </InterfaceDefinition>
+    <InterfaceDefinition Include="Views\EngTaskViewCell.xib" />
+    <InterfaceDefinition Include="Views\EngTaskView.xib" />
   </ItemGroup>
 </Project>

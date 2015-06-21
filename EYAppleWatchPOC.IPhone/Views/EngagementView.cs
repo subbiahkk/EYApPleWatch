@@ -51,20 +51,6 @@ namespace EYAppleWatchPOC.IPhone.Views
             {
                 //	BackgroundColor = UIColor.Black
             };
-           /* base.ViewDidLoad();
-
-            // ios7 layout
-            if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
-                EdgesForExtendedLayout = UIRectEdge.None;
-
-            var source = new MvxStandardTableViewSource(TableView, "TitleText Description;Client ClientName");
-            TableView.Source = source;
-
-            var set = this.CreateBindingSet<EngagementView, EngagementViewModel>();
-            set.Bind(source).To(vm => vm.Engagements);
-            set.Apply();
-
-            TableView.ReloadData();*/
 
             base.ViewDidLoad();
             this.Title = "Engagements";
@@ -89,5 +75,7 @@ namespace EYAppleWatchPOC.IPhone.Views
 
             tableView.ReloadData();
         }
+
+
     }
 }

@@ -12,6 +12,8 @@ namespace EYAppleWatchPOC.Core
                 .RegisterAsLazySingleton();
 				
             RegisterAppStart<ViewModels.EngagementViewModel>();
+
+
         }
     }
 }

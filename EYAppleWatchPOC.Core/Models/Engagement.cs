@@ -10,7 +10,7 @@ namespace EYAppleWatchPOC.Core.Models
     {
         public Engagement()
         {
-            ClientName = "Coca Cola";
+            //ClientName = "Coca Cola";
         }
 
         public int Id { get; set; }
@@ -19,5 +19,10 @@ namespace EYAppleWatchPOC.Core.Models
        
 
         public string ClientName { get; set; }
+
+		public List<EngTask> Tasks {
+			get;
+			set;
+		}
     }
 }

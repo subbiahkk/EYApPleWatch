@@ -16,4 +16,20 @@ namespace EYAppleWatchPOC.Core.Services
     {
         void GetAllTasks(string engagementId, Action<List<EngTask>> Success, Action<Exception> Error);
     }
+
+	public class EngagementService : IEngagementService
+	{
+		private readonly IRestService _SimpleRestService;        
+
+		public EngagementService(IRestService simpleRestService)
+		{
+			_SimpleRestService = simpleRestService;
+		}
+
+		public void GetAllEngagements(Action<List<Engagement>> success, Action<Exception> error)
+		{
+			_SimpleRestService.MakeRequest<List<Engagement>>(
+				"http://eyapplewatch.azurewebsites.net/api/engagement", "Get", success, error);              
+		}
+	}
 }
