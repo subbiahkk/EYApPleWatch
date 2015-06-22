@@ -29,47 +29,7 @@ namespace EYAppleWatchPOC.IPhone.Views
 			// Release any cached data, images, etc that aren't in use.
 		}
 
-		partial void Button_Click (Foundation.NSObject sender)
-		{
-			/*var categories = new  NSMutableSet();
-			var acceptAction = new UIMutableUserNotificationAction();
-			acceptAction.Title = "New Task";
-			acceptAction.Identifier = "Accept";
-			acceptAction.ActivationMode = UIUserNotificationActivationMode.Background;
-			acceptAction.AuthenticationRequired = false;
-			  
-			UIUserNotificationAction[] actions = new UIUserNotificationAction[1]();
-			actions[0] = acceptAction;
-			var taskCategory = new UIMutableUserNotificationCategory();
-			taskCategory.SetActions(actions,UIUserNotificationActionContext.Default);
-			taskCategory.Identifier = "Task";
-			categories.AddObjects(taskCategory);
 
-			var settings = new UIUserNotificationSettings;*/
-
-			/*var notification = new UILocalNotification();
-
-			// set the fire date (the date time in which it will fire)
-			notification.FireDate = NSDate.Now.AddSeconds(10); //DateTime.Now.AddSeconds(10));
-			notification.TimeZone = NSTimeZone.DefaultTimeZone;
-			// configure the alert stuff
-			notification.AlertTitle = "New Task";
-			notification.AlertAction = "Alert Action";
-			notification.AlertBody = "New Task Added to Engagement 1";
-			notification.SoundName = UILocalNotification.DefaultSoundName;
-
-			notification.UserInfo = NSDictionary.FromObjectAndKey (new NSString("UserInfo for notification"), 
-				new NSString("Notification"));
-
-			// modify the badge - has no effect on the Watch
-			//notification.ApplicationIconBadgeNumber = 1;
-
-			// set the sound to be the default sound
-			//notification.SoundName = UILocalNotification.DefaultSoundName;
-
-			// schedule it
-			UIApplication.SharedApplication.ScheduleLocalNotification(notification);*/
-		}
 
 		public override void ViewDidLoad()
 		{
@@ -100,7 +60,7 @@ namespace EYAppleWatchPOC.IPhone.Views
 				UIApplication.SharedApplication.ScheduleLocalNotification(notification);
 			}
 
-			var tableView = new UITableView(new RectangleF(0, 125, 1200, 1208), UITableViewStyle.Plain);
+			var tableView = new UITableView(new RectangleF(0, 0, 1200, 1208), UITableViewStyle.Plain);
 			//var tableView = new UITableView(View., UITableViewStyle.Plain);
 			Add(tableView);
 

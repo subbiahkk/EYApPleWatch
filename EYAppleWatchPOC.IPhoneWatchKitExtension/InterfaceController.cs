@@ -53,6 +53,37 @@ namespace EYAppleWatchPOC.IPhoneWatchKitExtension
 			//separator.SetHeight (20);
 		}
 
+		public override void DidSelectRow (WKInterfaceTable table, nint rowIndex)
+		{
+			var rowData = engList [(int)rowIndex];
+			Console.WriteLine ("Row selected:" + rowData);
+			// if selection should open a new scene
+			var suggest = new string[] {"Get groceries", "Buy gas", "Post letter"};
+
+			PresentTextInputController (suggest, WatchKit.WKTextInputMode.Plain, (result) => {
+				// action when the "text input" is complete
+				if (result != null && result.Count > 0) {
+					// this only works if result is a text response (Plain or AllowEmoji)
+					string enteredText = result.GetItem<NSObject>(0).ToString();
+					Console.WriteLine (enteredText);
+
+					WKInterfaceController.OpenParentApplication(
+						new NSDictionary (
+							"todoTask", enteredText
+						), 
+						(replyInfo, error) => {
+							if(error != null) {
+								Console.WriteLine (error);
+								return;
+							}
+							Console.WriteLine ("parent app responded");
+							// do something with replyInfo[] dictionary
+						});
+					// do something, such as myLabel.SetText(enteredText);
+				}
+			});
+		}
+
 		public override void Awake (NSObject context)
 		{
 			base.Awake (context);

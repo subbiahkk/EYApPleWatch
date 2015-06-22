@@ -47,18 +47,20 @@ namespace EYAppleWatchPOC.IPhone.Views
 
         public override void ViewDidLoad()
         {
-            View = new UIView()
-            {
-                //	BackgroundColor = UIColor.Black
-            };
+            
 
             base.ViewDidLoad();
             this.Title = "Engagements";
+			View.BackgroundColor = UIColor.White;
+            
 
-            var activity = new UIActivityIndicatorView(new RectangleF(130, 130, 60, 60));
-            activity.Color = UIColor.Orange;
+			//var buttonRect = new UIButton(new RectangleF(0, 75, 85, 30));
+			var buttonRect = UIButton.FromType(UIButtonType.System);
+			buttonRect.SetTitle ("Refresh!", UIControlState.Normal);
+			buttonRect.Frame = new RectangleF(0, 75, 85, 30);
 
-            var tableView = new UITableView(new RectangleF(0, 0, 1200, 1208), UITableViewStyle.Plain);
+			View.AddSubview (buttonRect);
+            var tableView = new UITableView(new RectangleF(0, 105, 1200, 1208), UITableViewStyle.Plain);
             //var tableView = new UITableView(View., UITableViewStyle.Plain);
             Add(tableView);
 
@@ -71,6 +73,7 @@ namespace EYAppleWatchPOC.IPhone.Views
             var set = this.CreateBindingSet<EngagementView, EngagementViewModel>();
             set.Bind(source).To(vm => vm.Engagements);
             set.Bind(source).For(s => s.SelectionChangedCommand).To(vm => vm.ItemSelectedCommand);
+			set.Bind (buttonRect).To (vm => vm.RefreshCommand);
             set.Apply();
 
             tableView.ReloadData();

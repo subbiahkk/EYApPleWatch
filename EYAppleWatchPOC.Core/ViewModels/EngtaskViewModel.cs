@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using EYAppleWatchPOC.Core.Services;
+using System.Net;
+using System.Collections.Generic;
 namespace EYAppleWatchPOC.Core.ViewModels
 {
     public class EngTaskViewModel: MvxViewModel
@@ -25,7 +27,11 @@ namespace EYAppleWatchPOC.Core.ViewModels
 
 		public void AddTask(string description,int engId)
 		{
-			
+			RestService rs = new RestService ();
+			WebHeaderCollection headers = new WebHeaderCollection ();
+			headers["description"] = description;
+			headers["engid"] = engId.ToString();
+			rs.PostRequest ("http://eyapplewatch.azurewebsites.net/api/task",headers,result => {},error => { });
 		}
 
         public Engagement Engagement { get; set; }

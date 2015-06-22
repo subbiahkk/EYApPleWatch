@@ -95,49 +95,50 @@ namespace EYAppleWatchPOC.Core.Services
 
         public byte[] FileToSend;
 
-        public void PostRequest(string url, WebHeaderCollection headers, Action<string> successAction, Action<Exception> errorAction)
+        public  void PostRequest(string url, WebHeaderCollection headers, Action<string> successAction, Action<Exception> errorAction)
         {
-            try
+			try
+			{
+			HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+			myHttpWebRequest.Method = "POST";
+			myHttpWebRequest.Headers = headers;
+			myHttpWebRequest.ContentType = "application//x-www-form-urlencoded";
+
+			// myHttpWebRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), myHttpWebRequest);
+
+			myHttpWebRequest.BeginGetRequestStream(token =>
+				{                   
+
+
+					// End the operation
+					Stream postStream = myHttpWebRequest.EndGetRequestStream(token);
+
+
+					// Convert the string into a byte array. 
+					byte[] byteArray = System.Text.Encoding.UTF8.GetBytes ("post data");
+
+					// Write to the request stream.
+					postStream.Write(byteArray, 0, byteArray.Length);
+					// postStream.Close();
+
+					// Start the asynchronous operation to get the response
+					IAsyncResult result = (IAsyncResult)myHttpWebRequest.BeginGetResponse(new AsyncCallback(delegate(IAsyncResult tempResult)
+						{
+							HttpWebResponse webResponse = (HttpWebResponse)myHttpWebRequest.EndGetResponse(tempResult);
+							Stream responseStream = webResponse.GetResponseStream();
+
+							using (StreamReader reader = new StreamReader(responseStream, Encoding.UTF8))
+							{
+
+								successAction(reader.ReadToEnd());
+
+							}
+						}), null);
+				}, myHttpWebRequest);
+		}
+			catch(Exception ex)
             {
-                HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                myHttpWebRequest.Method = "POST";
-                myHttpWebRequest.Headers = headers;
-                myHttpWebRequest.ContentType = "application//x-www-form-urlencoded";
-
-                // myHttpWebRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), myHttpWebRequest);
-
-                myHttpWebRequest.BeginGetRequestStream(token =>
-                {
-
-
-                    // End the operation
-                    Stream postStream = myHttpWebRequest.EndGetRequestStream(token);
-
-
-                    // Convert the string into a byte array. 
-                    byte[] byteArray = FileToSend;
-
-                    // Write to the request stream.
-                    postStream.Write(byteArray, 0, FileToSend.Length);
-                    // postStream.Close();
-
-                    // Start the asynchronous operation to get the response
-                    IAsyncResult result = (IAsyncResult)myHttpWebRequest.BeginGetResponse(new AsyncCallback(delegate(IAsyncResult tempResult)
-                    {
-                        HttpWebResponse webResponse = (HttpWebResponse)myHttpWebRequest.EndGetResponse(tempResult);
-                        Stream responseStream = webResponse.GetResponseStream();
-
-                        using (StreamReader reader = new StreamReader(responseStream, Encoding.UTF8))
-                        {
-
-                            successAction(reader.ReadToEnd());
-
-                        }
-                    }), null);
-                }, myHttpWebRequest);
-            }
-            catch
-            {
+				
             }
         }
 

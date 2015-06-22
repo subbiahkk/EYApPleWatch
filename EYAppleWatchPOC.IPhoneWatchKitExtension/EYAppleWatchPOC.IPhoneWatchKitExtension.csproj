@@ -92,6 +92,10 @@
     </Compile>
     <Compile Include="ElementRowController.cs" />
     <Compile Include="ElementRowController.designer.cs" />
+    <Compile Include="EngDetailController.cs" />
+    <Compile Include="EngDetailController.designer.cs">
+      <DependentUpon>EngDetailController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="PushNotificationPayload.json" />

@@ -14,8 +14,10 @@ namespace EYAppleWatchPOC.Core.Services
 
     public interface ITaskService
     {
-        void GetAllTasks(string engagementId, Action<List<EngTask>> Success, Action<Exception> Error);
+		void AddTask(string engId,string toDoTask, Action<bool> Success, Action<Exception> Error);
     }
+
+
 
 	public class EngagementService : IEngagementService
 	{

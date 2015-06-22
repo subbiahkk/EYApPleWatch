@@ -10,12 +10,17 @@ namespace EYAppleWatchPOC.Core.ViewModels
     public class EngagementViewModel
         : MvxViewModel
     {
+		public void Init()
+		{
+			
+		}
 
+		IEngagementService _engagementService;
 		public EngagementViewModel(IEngagementService engagementService)
         {
-            engagementService.GetAllEngagements(result => Engagements = result,
-                error => { });
+			_engagementService = engagementService;
 
+			RefreshData ();
             //Engagements = GetEngagements();
         }
 
@@ -38,6 +43,20 @@ namespace EYAppleWatchPOC.Core.ViewModels
             }
         }
 
+		private Cirrious.MvvmCross.ViewModels.MvxCommand _RefreshCommand;
+		public System.Windows.Input.ICommand RefreshCommand
+		{
+			get
+			{
+				_RefreshCommand = _RefreshCommand ?? new Cirrious.MvvmCross.ViewModels.MvxCommand(RefreshData);
+				return _RefreshCommand;
+			}
+		}
+		private void RefreshData()
+		{
+			_engagementService.GetAllEngagements(result => Engagements = result,
+				error => { });
+		}
         private void ShowEvidence(Engagement engagement)
         {
             string strEngagement = Newtonsoft.Json.JsonConvert.SerializeObject(engagement);
