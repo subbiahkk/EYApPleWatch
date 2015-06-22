@@ -58,9 +58,9 @@ namespace EYAppleWatchPOC.IPhoneWatchKitExtension
 			var rowData = engList [(int)rowIndex];
 			Console.WriteLine ("Row selected:" + rowData);
 			// if selection should open a new scene
-			var suggest = new string[] {"Get groceries", "Buy gas", "Post letter"};
 
-			PresentTextInputController (suggest, WatchKit.WKTextInputMode.Plain, (result) => {
+
+			PresentTextInputController (new string[0], WatchKit.WKTextInputMode.Plain, (result) => {
 				// action when the "text input" is complete
 				if (result != null && result.Count > 0) {
 					// this only works if result is a text response (Plain or AllowEmoji)
