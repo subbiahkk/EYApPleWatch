@@ -51,7 +51,7 @@ namespace EYAppleWatchPOC.IPhone.Views
 				notification.AlertAction = "Alert Action";
 				notification.AlertBody = "New Task :" +
 				viewModel.EngTasks.Where (s => s.IsNew == true).ToList () [0].Description
-					+ " Added to Engagement : " + viewModel.Engagement.Description;
+					+ " Added to  " + viewModel.Engagement.Description;
 				notification.SoundName = UILocalNotification.DefaultSoundName;
 
 				notification.UserInfo = NSDictionary.FromObjectAndKey (new NSString("UserInfo for notification"), 

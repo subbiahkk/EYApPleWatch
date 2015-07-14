@@ -69,7 +69,8 @@ namespace EYAppleWatchPOC.IPhoneWatchKitExtension
 
 					WKInterfaceController.OpenParentApplication(
 						new NSDictionary (
-							"todoTask", enteredText
+							"todoTask", enteredText,
+							"engId",rowData["id"]
 						), 
 						(replyInfo, error) => {
 							if(error != null) {

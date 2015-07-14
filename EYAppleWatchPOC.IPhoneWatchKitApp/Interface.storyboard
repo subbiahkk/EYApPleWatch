@@ -47,9 +47,9 @@
             <objects>
                 <glanceController spacing="0.0" id="0uZ-2p-rRc" customClass="GlanceController" customModuleProvider="">
                     <items>
-                        <group alignment="left" id="t8f-Gd-c4y" width="134" height="46">
+                        <group alignment="left" id="t8f-Gd-c4y" width="104" height="22">
                             <items>
-                                <label alignment="left" text="EY POC" id="3" width="118" height="20">
+                                <label alignment="left" text="EY POC....." id="3" width="118" height="20" verticalAlignment="bottom">
                                     <color key="textColor" colorSpace="calibratedRGB" red="0" green="1" blue="0" alpha="1"/>
                                 </label>
                             </items>
@@ -89,14 +89,6 @@
             <objects>
                 <controller id="gdX-wl-uQE" customClass="NotificationController" customModuleProvider="">
                     <items>
-                        <group width="1" alignment="left" id="7">
-                            <items>
-                                <dateLabel alignment="left" id="10">
-                                    <dateFormatterStyle key="dateStyle" none="YES" short="YES"/>
-                                    <dateFormatterStyle key="timeStyle" none="YES" short="YES"/>
-                                </dateLabel>
-                            </items>
-                        </group>
                     </items>
                 </controller>
             </objects>

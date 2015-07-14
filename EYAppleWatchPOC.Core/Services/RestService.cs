@@ -102,8 +102,8 @@ namespace EYAppleWatchPOC.Core.Services
 			HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
 			myHttpWebRequest.Method = "POST";
 			myHttpWebRequest.Headers = headers;
-			myHttpWebRequest.ContentType = "application//x-www-form-urlencoded";
-
+			//myHttpWebRequest.ContentType = "application//x-www-form-urlencoded";
+				myHttpWebRequest.ContentType = "application/json";
 			// myHttpWebRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), myHttpWebRequest);
 
 			myHttpWebRequest.BeginGetRequestStream(token =>

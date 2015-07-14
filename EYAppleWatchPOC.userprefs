@@ -1,41 +1,30 @@
 ﻿<Properties StartupItem="EYAppleWatchPOC.IPhone/EYAppleWatchPOC.IPhone.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Subbiah's iPhone" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/8.10.0.303/lib/mono/2.1/Xamarin.iOS.Common.targets">
+  <MonoDevelop.Ide.Workbench ActiveDocument="EYAppleWatchPOC.IPhoneWatchKitExtension/Info.plist">
     <Files>
-      <File FileName="EYAppleWatchPOC.Core/Services/RestService.cs" Line="1" Column="1" />
-      <File FileName="EYAppleWatchPOC.Core/ViewModels/EngtaskViewModel.cs" Line="1" Column="1" />
-      <File FileName="EYAppleWatchPOC.Core/Services/Services.cs" Line="1" Column="1" />
-      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/InterfaceController.cs" Line="1" Column="1" />
-      <File FileName="EYAppleWatchPOC.IPhone/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="EYAppleWatchPOC.Core/ViewModels/EngagementViewModel.cs" Line="1" Column="1" />
-      <File FileName="../../../../Library/Frameworks/Mono.framework/Versions/4.0.0/lib/mono/4.5/Microsoft.CSharp.targets" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/Info.plist" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitApp/Info.plist" />
       <File FileName="../../../../Library/Frameworks/Xamarin.iOS.framework/Versions/8.10.0.303/lib/mono/2.1/Xamarin.iOS.Common.targets" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/Entitlements.plist" />
+      <File FileName="EYAppleWatchPOC.IPhone/Setup.cs" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/AppData.json" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/ElementRowController.cs" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/ElementRowController.designer.cs" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitExtension/EngDetailController.cs" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhone/Main.cs" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhoneWatchKitApp/Entitlements.plist" />
+      <File FileName="EYAppleWatchPOC.IPhone/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="EYAppleWatchPOC.IPhone/Info.plist" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.Core/ViewModels/EngtaskViewModel.cs" line="29" column="1" />
       <Breakpoint file="/Users/eydev/Projects/EYAppleWatchPOC/EYAppleWatchPOCWatchKitExtension/InterfaceController.cs" line="16" column="1" />
-      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.IPhoneWatchKitExtension/InterfaceController.cs" line="36" column="1" />
-      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.IPhoneWatchKitExtension/InterfaceController.cs" line="58" column="1" />
-      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.IPhone/AppDelegate.cs" line="32" column="1" />
+      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.Core/ViewModels/EngtaskViewModel.cs" line="30" column="1" />
+      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.Core/Services/RestService.cs" line="102" column="1" />
+      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.Core/Services/RestService.cs" line="114" column="1" />
+      <Breakpoint file="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.IPhone/AppDelegate.cs" line="66" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.EYAppleWatchPOC.IPhoneWatchKitExtension>
-    <MonoDevelop.Ide.CustomExecutionModes>
-      <Data Name="watch Notification" Id="a826403f-26dc-4245-b9c6-0c44ede31971" ModeId="Default">
-        <CommandData>
-          <Item Key="MonoDevelop.IPhone.Execution.IOSExecutionCustomizer">
-            <Value ctype="IOSExecutionParameters">
-              <EnvironmentVariables />
-            </Value>
-          </Item>
-          <Item Key="MonoDevelop.IPhone.Execution.IOSWatchKitExecutionCustomizer">
-            <Value ExecutionMode="Notification" NotificationPayload="/Users/eydev/GitHub/EYApPleWatch/EYAppleWatchPOC.IPhoneWatchKitExtension/PushNotificationPayload.json" ctype="IOSWatchKitExecutionParameters" />
-          </Item>
-        </CommandData>
-      </Data>
-    </MonoDevelop.Ide.CustomExecutionModes>
-  </MonoDevelop.Ide.ItemProperties.EYAppleWatchPOC.IPhoneWatchKitExtension>
 </Properties>

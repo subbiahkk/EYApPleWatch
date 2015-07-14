@@ -25,12 +25,12 @@ namespace EYAppleWatchPOC.Core.ViewModels
            
         }
 
-		public void AddTask(string description,int engId)
+		public void AddTask(string description,string engId)
 		{
 			RestService rs = new RestService ();
 			WebHeaderCollection headers = new WebHeaderCollection ();
 			headers["description"] = description;
-			headers["engid"] = engId.ToString();
+			headers["engid"] = engId;
 			rs.PostRequest ("http://eyapplewatch.azurewebsites.net/api/task",headers,result => {},error => { });
 		}
 
